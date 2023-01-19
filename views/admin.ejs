@@ -44,12 +44,12 @@
 
 <script>
     document.getElementById('btn-delete').addEventListener('click', () => {
-        fetch('http://localhost:3000/admin/<%= id  %>/delete', {
-                    method: 'POST',
-                })
-        // fetch('https://staarooms.onrender.com/admin/<%= id  %>/delete', {
-        //     method: 'POST',
-        // })
+        // fetch('http://localhost:3000/admin/<%= id  %>/delete', {
+        //             method: 'POST',
+        //         })
+        fetch('https://scheduletutor.onrender.com/admin/<%= id  %>/delete', {
+            method: 'POST',
+        })
     })
     document.getElementById('btn-csv-file').addEventListener('click', () => {
         var input = document.createElement('input')
@@ -62,17 +62,7 @@
 
             reader.onload = readerEvent => {
                 var content = readerEvent.target.result;
-                // fetch('https://staarooms.onrender.com/admin/<%= id  %>', {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify({
-                //         name: "henry",
-                //         data: content
-                //     })
-                // })
-                fetch('http://localhost:3000/admin/<%= id  %>', {
+                fetch('https://scheduletutor.onrender.com/admin/<%= id  %>', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -82,27 +72,22 @@
                         data: content
                     })
                 })
+                // fetch('http://localhost:3000/admin/<%= id  %>', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //     },
+                //     body: JSON.stringify({
+                //         name: "henry",
+                //         data: content
+                //     })
+                // })
             }
         }
         input.click()
     })
     document.getElementById('btn-show-all').addEventListener('click', () => {
-        // fetch('https://staarooms.onrender.com/admin/<%= id %>/getdata')
-        // .then(response => response.json())
-        // .then(data => {
-        //     console.log(data.data)
-        //     const table = document.getElementById('tbl')
-        //     for (const key in data.data) {
-        //         const row = document.createElement('tr')
-        //         const id = document.createElement('td')
-        //         const room = document.createElement('td')
-        //         id.textContent = key + " : " + data.data[key]
-        //         row.appendChild(id)
-        //         row.appendChild(room)
-        //         table.appendChild(row)
-        //     }
-        // })
-        fetch('http://localhost:3000/admin/<%= id %>/getdata')
+        fetch('https://scheduletutor.onrender.com/admin/<%= id %>/getdata')
         .then(response => response.json())
         .then(data => {
             console.log(data.data)
@@ -117,5 +102,20 @@
                 table.appendChild(row)
             }
         })
+        // fetch('http://localhost:3000/admin/<%= id %>/getdata')
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log(data.data)
+        //     const table = document.getElementById('tbl')
+        //     for (const key in data.data) {
+        //         const row = document.createElement('tr')
+        //         const id = document.createElement('td')
+        //         const room = document.createElement('td')
+        //         id.textContent = key + " : " + data.data[key]
+        //         row.appendChild(id)
+        //         row.appendChild(room)
+        //         table.appendChild(row)
+        //     }
+        // })
     })
 </script>
