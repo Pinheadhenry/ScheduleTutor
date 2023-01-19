@@ -1,0 +1,30 @@
+<div class="container text-center text-dark p-5">
+    <div class="m-3">
+        <% if (locals.studentId != null) { %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Class</th>
+                        <th scope="col">Adviosry</th>
+                        <th scope="col">Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for( let i = 0; i < studentId.length; i+=3 ) { %>
+                        <tr>
+                            <th scope="row"><%= studentId[i] %> </th>
+                            <td><%= studentId[i+1] %> </td>
+                            <td><%= studentId[i+2] %> </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+    <form action="/" method="POST">
+        <label for="studentId" class="form-label">Student ID</label>
+        <input type="text" id="studentId" name="studentId" class="form-control">
+        <button type="submit" class="btn btn-primary m-3">Find Test Room</button>
+    </form>
+</div>
+    
